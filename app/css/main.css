@@ -1,0 +1,29 @@
+.jumbotron {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #F1F1F1;
+}
+
+body {
+  padding-top: 45px;
+  margin-bottom: 45px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  background-color: #008cba;
+}
+
+.footer > .container {
+  margin-top: 12px;
+  color: #ffffff;
+}
