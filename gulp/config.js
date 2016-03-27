@@ -9,7 +9,7 @@ export default {
   source: {
     stylesheets: './app/css/main.css',
     jsMain: './app/js/app.jsx',
-    scripts: './app/js/**/*.@(js|jsx)',
+    scripts: './app/js/**/*.@(js|jsx|json)',
     html: './app/index.html',
     circle: './circle.yml',
   },

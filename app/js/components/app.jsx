@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Navbar, { Collapse, Toggle, Brand, Header } from 'react-bootstrap/lib/Navbar';
+import Navbar, { Text, Link, Collapse, Toggle, Brand, Header } from 'react-bootstrap/lib/Navbar';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -22,20 +22,18 @@ function App({ children }) {
         </Collapse>
       </Navbar>
       {children}
-      <div className='navbar navbar-inverse navbar-fixed-bottom'>
-        <div className='container'>
-          <div className='nav navbar-left pull-left'>
-            <p className='navbar-text'>&copy; Kristen Mills 2016</p>
-          </div>
-          <div className='nav pull-right navbar-right'>
-            <p className='navbar-text'>
-              <a className='navbar-link' href='https://github.com/pokemon-tcg/api'>
-                <i className='fa fa-github fa-lg' />
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <Navbar fixedBottom inverse>
+        <Nav pullLeft className='pull-left margin-left-0'>
+          <Text>&copy; Kristen Mills 2016</Text>
+        </Nav>
+        <Nav pullRight className='pull-right margin-right-0'>
+          <Text>
+            <Link href='https://github.com/pokemon-tcg/api'>
+              <i className='fa fa-github fa-lg' />
+            </Link>
+          </Text>
+        </Nav>
+      </Navbar>
     </div>
   );
 }
