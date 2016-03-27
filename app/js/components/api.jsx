@@ -10,7 +10,7 @@ const sections = ['#pokemon', '#series', '#set'];
 
 export default class API extends Component {
 
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -24,9 +24,21 @@ export default class API extends Component {
       }, {}),
     };
 
+
     this.onBefore = this.onBefore.bind(this);
     this.onAfter = this.onAfter.bind(this);
     this.updateActiveHref = this.updateActiveHref.bind(this);
+
+  }
+
+  componentDidMount() {
+    for (const href of Object.keys(this.state.after)) {
+      this.state.after[href] = true;
+      if (href === this.props.location.hash) {
+        this.updateActiveHref();
+        break;
+      }
+    }
   }
 
   onBefore(href) {

@@ -1,14 +1,5 @@
 import React from 'react';
-import Waypoint from 'react-waypoint';
-
-
-const ScrollSpy = ({ href, onBefore, onAfter }) => (
-  <Waypoint
-    onEnter={(e, dir) => dir === 'above' && onBefore(href)}
-    onLeave={(e, dir) => dir === 'above' && onAfter(href)}
-    threshold={-0.02}
-  />
-);
+import ScrollSpy from './scroll-spy';
 
 export default function APISection({ data, onBefore, onAfter }) {
 
@@ -24,7 +15,7 @@ export default function APISection({ data, onBefore, onAfter }) {
         <h2 className='page-header'>Request</h2>
       </div>
       <ScrollSpy href={`#${data.href}-response`} onBefore={onBefore} onAfter={onAfter} />
-      <div className='json' id={`${data.href}-request`} >
+      <div className='json' id={`${data.href}-response`} >
         <h2 className='page-header'>Response</h2>
       </div>
     </div>

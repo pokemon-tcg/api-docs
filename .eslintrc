@@ -2,5 +2,3 @@
   extends:
     - sse/es6
     - sse/jsx
-  rules:
-    react/prop-types: 2
