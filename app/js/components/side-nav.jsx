@@ -4,14 +4,20 @@ import AutoAffix from 'react-overlays/lib/AutoAffix';
 
 import SubNav from './sub-nav';
 
-export default function SideNav({ main, activeHref }) {
+export default function SideNav({ apiData, main, activeHref }) {
   return (
     <AutoAffix viewportOffsetTop={65} container={main}>
       <div className='bs-docs-sidebar hidden-print hidden-xs hidden-sm'>
         <Nav className='bs-docs-sidenav' activeHref={activeHref}>
-          <SubNav href='#pokemon' title='Pokemon' activeHref={activeHref} />
-          <SubNav href='#series' title='Series' activeHref={activeHref} />
-          <SubNav href='#set' title='Set' activeHref={activeHref} />
+          {apiData.map(data => {
+            return (
+              <SubNav
+                key={data.baseHref}
+                data={data}
+                activeHref={activeHref}
+              />
+            );
+          })}
         </Nav>
       </div>
     </AutoAffix>

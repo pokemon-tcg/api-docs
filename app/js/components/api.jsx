@@ -2,24 +2,21 @@ import React, { Component } from 'react';
 import SideNav from './side-nav';
 
 import APISection from './api-section';
-import APIData  from './api-data';
-
-const { pokemon, series, set } = APIData;
-
-const sections = ['#pokemon', '#series', '#set'];
+import apiData  from './api-data';
 
 export default class API extends Component {
 
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
       active: '#pokemon',
-      sections,
-      after: sections.reduce((obj, item) => {
-        obj[item] = false;
-        obj[`${item}-request`] = false;
-        obj[`${item}-response`] = false;
+      apiData,
+      after: apiData.reduce((obj, item) => {
+        obj[`#${item.baseHref}`] = false;
+        item.endpoints.forEach(endpoint => {
+          obj[`#${item.baseHref}-${endpoint.href}`] = false;
+        });
         return obj;
       }, {}),
     };
@@ -69,12 +66,23 @@ export default class API extends Component {
       <div refs='container' className='container'>
         <div className='row'>
           <div className='col-md-3'>
-            <SideNav main={this.refs.container} activeHref={this.state.active} />
+            <SideNav
+              main={this.refs.container}
+              activeHref={this.state.active}
+              apiData={this.state.apiData}
+            />
           </div>
           <div className='col-md-9'>
-            <APISection onBefore={this.onBefore} onAfter={this.onAfter} data={pokemon} />
-            <APISection onBefore={this.onBefore} onAfter={this.onAfter} data={series} />
-            <APISection onBefore={this.onBefore} onAfter={this.onAfter} data={set} />
+            {this.state.apiData.map(data => {
+              return (
+                <APISection
+                  key={data.baseHref}
+                  onBefore={this.onBefore}
+                  onAfter={this.onAfter}
+                  data={data}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

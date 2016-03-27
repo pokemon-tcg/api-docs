@@ -1,4 +1,26 @@
 {
   "header": "Pokemon",
-  "href": "pokemon"
+  "baseHref": "pokemon",
+  "description": "This resource is for getting information on a pokemon card",
+  "baseEndpoint": "/pokemon",
+  "endpoints": [{
+    "header": "Pokemon Collection",
+    "href": "collection",
+    "endpoint": "?queryparameters",
+    "request": [{
+      "name": "Name",
+      "type": "String",
+      "description": "The name of the pokemon card"
+    }],
+    "response": {
+      "body": [{
+         "someParameter": "someValue"
+      }],
+      "description": [{
+        "name": "Name",
+        "type": "String",
+        "description": "The name of the pokemon card"
+      }]
+    }
+  }]
 }

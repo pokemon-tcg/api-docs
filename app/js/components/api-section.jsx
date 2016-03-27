@@ -5,19 +5,25 @@ export default function APISection({ data, onBefore, onAfter }) {
 
   return (
     <div>
-      <ScrollSpy href={`#${data.href}`} onBefore={onBefore} onAfter={onAfter} />
-      <div className='json' id={data.href}>
+      <ScrollSpy href={`#${data.baseHref}`} onBefore={onBefore} onAfter={onAfter} />
+      <div id={data.baseHref}>
         <h1 className='page-header'>{data.header}</h1>
         <p className='lead'>{data.description}</p>
       </div>
-      <ScrollSpy href={`#${data.href}-request`} onBefore={onBefore} onAfter={onAfter} />
-      <div className='json' id={`${data.href}-request`}>
-        <h2 className='page-header'>Request</h2>
-      </div>
-      <ScrollSpy href={`#${data.href}-response`} onBefore={onBefore} onAfter={onAfter} />
-      <div className='json' id={`${data.href}-response`} >
-        <h2 className='page-header'>Response</h2>
-      </div>
+      {data.endpoints.map(endpoint => {
+        return (
+          <div key={endpoint.href}>
+            <ScrollSpy
+              href={`#${data.baseHref}-${endpoint.href}`}
+              onBefore={onBefore}
+              onAfter={onAfter}
+            />
+            <div id={`${data.baseHref}-${endpoint.href}`}>
+              <h2 className='page-header'>{endpoint.header}</h2>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
