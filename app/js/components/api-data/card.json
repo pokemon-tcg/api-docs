@@ -76,9 +76,11 @@
     },
     "response": {
       "body": [{
-        "series": "BW",
-        "set": "DEX",
-        "number": 3,
+        "id": {
+          "series": "BW",
+          "set": "DEX",
+          "number": 3
+        },
         "name": "Venusaur",
         "type": "Grass",
         "stage": "Stage 2",
@@ -139,9 +141,11 @@
     },
     "response": {
       "body": {
-        "series": "BW",
-        "set": "DEX",
-        "number": 3,
+        "id": {
+          "series": "BW",
+          "set": "DEX",
+          "number": 3
+        },
         "name": "Venusaur",
         "type": "Grass",
         "stage": "Stage 2",
