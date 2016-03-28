@@ -1,4 +1,40 @@
 {
   "header": "Series",
-  "href": "series"
+  "baseHref": "#series",
+  "description": "This resource is for getting information on a TCG Series",
+  "baseEndpoint": "/series",
+  "endpoints": [{
+    "header": "Series Collection",
+    "href": "collection",
+    "endpoint": "",
+    "request": {},
+    "response": {
+      "body": [{
+        "id": {
+          "series": "BW"
+        },
+        "name": "Black & White"
+      }]
+    }
+  },
+  {
+    "header": "Series Instance",
+    "href": "instance",
+    "endpoint": "/:seriesId",
+    "request": {
+      "path": [{
+        "param": "seriesId",
+        "type": "string",
+        "examples": "BW"
+      }]
+    },
+    "response": {
+      "body": {
+        "id": {
+          "series": "BW"
+        },
+        "name": "Black & White"
+      }
+    }
+  }]
 }

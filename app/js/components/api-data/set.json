@@ -1,4 +1,53 @@
 {
   "header": "Set",
-  "href": "set"
+  "baseHref": "#set",
+  "description": "This resource is for getting information on a TCG Set",
+  "baseEndpoint": "/series/:seriesId/sets",
+  "endpoints": [{
+    "header": "Set Collection",
+    "href": "collection",
+    "endpoint": "",
+    "request": {
+      "path": [{
+        "param": "seriesId",
+        "type": "String",
+        "examples": "BW"
+      }]
+    },
+    "response": {
+      "body": [{
+        "id": {
+          "series": "BW",
+          "set": "DEX"
+        },
+        "name": "Black & White"
+      }]
+    }
+  },
+  {
+    "header": "Set Instance",
+    "href": "instance",
+    "endpoint": "/:setId",
+    "request": {
+      "path": [{
+        "param": "seriesId",
+        "type": "String",
+        "examples": "BW"
+      },
+      {
+        "param": "setId",
+        "type": "String",
+        "examples": "DEX"
+      }]
+    },
+    "response": {
+      "body": {
+        "id": {
+          "series": "BW",
+          "set": "DEX"
+        },
+        "name": "Dark Explorers"
+      }
+    }
+  }]
 }

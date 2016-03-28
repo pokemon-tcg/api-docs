@@ -10,7 +10,7 @@ body {
 }
 
 .json {
-  height: 500px;
+  max-height: 500px;
   overflow-y: scroll;
   font-family: Source Code Pro,Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
 }
