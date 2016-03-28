@@ -1,26 +1,182 @@
 {
-  "header": "Pokemon",
-  "baseHref": "pokemon",
-  "description": "This resource is for getting information on a pokemon card",
-  "baseEndpoint": "/pokemon",
+  "header": "Card",
+  "baseHref": "#card",
+  "description": "This resource is for getting information on a pokémon card",
+  "baseEndpoint": "/cards",
   "endpoints": [{
-    "header": "Pokemon Collection",
+    "header": "Card Collection",
     "href": "collection",
-    "endpoint": "?queryparameters",
-    "request": [{
-      "name": "Name",
-      "type": "String",
-      "description": "The name of the pokemon card"
-    }],
+    "endpoint": "",
+    "request": {
+      "query": [{
+        "param": "series",
+        "type": "String",
+        "examples": "BW"
+      },
+      {
+        "param": "set",
+        "type": "String",
+        "examples": "DEX"
+      },
+      {
+        "param": "number",
+        "type": "Number",
+        "examples": 5
+      },
+      {
+        "param": "name",
+        "type": "String",
+        "examples": "Venusaur"
+      },
+      {
+        "param": "type",
+        "type": "String",
+        "examples": "Grass, Trainer, Energy, Supporter"
+      },
+      {
+        "param": "stage",
+        "type": "String",
+        "examples": "Basic, Stage 1, Stage 2"
+      },
+      {
+        "param": "evolves_from",
+        "type": "String",
+        "examples": "Ivysaur"
+      },
+      {
+        "param": "hp",
+        "type": "Number",
+        "examples": "140"
+      },
+      {
+        "param": "weakness",
+        "type": "String",
+        "examples": "fire, water, metal"
+      },
+      {
+        "param": "resistance",
+        "type": "String",
+        "examples": "fire, water, metal"
+      },
+      {
+        "param": "retreat_cost",
+        "type": "Number",
+        "examples": "0, 5"
+      },
+      {
+        "param": "ability",
+        "type": "String",
+        "examples": "Floral Scent"
+      },
+      {
+        "param": "move",
+        "type": "String",
+        "examples": "Poison Powder"
+      }]
+    },
     "response": {
       "body": [{
-         "someParameter": "someValue"
-      }],
-      "description": [{
-        "name": "Name",
-        "type": "String",
-        "description": "The name of the pokemon card"
+        "series": "BW",
+        "set": "DEX",
+        "number": 3,
+        "name": "Venusaur",
+        "type": "Grass",
+        "stage": "Stage 2",
+        "evolves_from": "Ivysaur",
+        "hp": 140,
+        "weakness": {
+          "modifier": "x2",
+          "type": "Fire"
+        },
+        "resistance": {
+          "modifier": "-20",
+          "type": "Water"
+        },
+        "retreat_cost": [{
+          "quantity": 4,
+          "type": "Colorless"
+        }],
+        "ability": {
+          "param": "Floral Scent",
+          "description": "Once during your turn (before your attack), you may search your deck for a Pokémon, reveal it, and put it into your hand. Shuffle your deck afterward."
+        },
+        "moves": [{
+          "damage": 70,
+          "param": "Poison Powder",
+          "cost": [{
+            "quantity": "2",
+            "type": "Grass"
+          },
+          {
+            "quantity": "2",
+            "type": "Colorless"
+          }],
+          "text": "The Defending Pokémon is now Poisoned."
+        }]
       }]
+    }
+  },
+  {
+    "header": "Card Instance",
+    "href": "instance",
+    "endpoint": "/:seriesId/:setId/:number",
+    "request": {
+      "path": [{
+        "param": "seriesId",
+        "type": "String",
+        "examples": "BW"
+      },
+      {
+        "param": "setId",
+        "type": "String",
+        "examples": "DEX"
+      },
+      {
+        "param": "number",
+        "type": "Number",
+        "examples": 5
+      }]
+    },
+    "response": {
+      "body": {
+        "series": "BW",
+        "set": "DEX",
+        "number": 3,
+        "name": "Venusaur",
+        "type": "Grass",
+        "stage": "Stage 2",
+        "evolves_from": "Ivysaur",
+        "hp": 140,
+        "weakness": {
+          "modifier": "x2",
+          "type": "Fire"
+        },
+        "resistance": {
+          "modifier": "-20",
+          "type": "Water"
+        },
+        "retreat_cost": [{
+          "quantity": 4,
+          "type": "Colorless"
+        }],
+        "ability": {
+          "param": "Floral Scent",
+          "description": "Once during your turn (before your attack), you may search your deck for a Pokémon, reveal it, and put it into your hand. Shuffle your deck afterward."
+        },
+        "moves": [{
+          "damage": 70,
+          "param": "Poison Powder",
+          "cost": [{
+            "quantity": "2",
+            "type": "Grass"
+          },
+          {
+            "quantity": "2",
+            "type": "Colorless"
+          }],
+          "text": "The Defending Pokémon is now Poisoned."
+        }]
+      }
     }
   }]
 }

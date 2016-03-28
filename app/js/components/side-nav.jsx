@@ -6,7 +6,7 @@ import SubNav from './sub-nav';
 
 export default function SideNav({ apiData, main, activeHref }) {
   return (
-    <AutoAffix viewportOffsetTop={65} container={main}>
+    <AutoAffix viewportOffsetTop={50} container={main}>
       <div className='bs-docs-sidebar hidden-print hidden-xs hidden-sm'>
         <Nav className='bs-docs-sidenav' activeHref={activeHref}>
           {apiData.map(data => {

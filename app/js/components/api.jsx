@@ -10,12 +10,12 @@ export default class API extends Component {
     super();
 
     this.state = {
-      active: '#pokemon',
+      active: apiData[0].baseHref,
       apiData,
       after: apiData.reduce((obj, item) => {
-        obj[`#${item.baseHref}`] = false;
+        obj[item.baseHref] = false;
         item.endpoints.forEach(endpoint => {
-          obj[`#${item.baseHref}-${endpoint.href}`] = false;
+          obj[`${item.baseHref}-${endpoint.href}`] = false;
         });
         return obj;
       }, {}),
@@ -59,6 +59,7 @@ export default class API extends Component {
 
       active = href;
     }
+    this.setState({ active });
   }
 
   render() {
@@ -72,7 +73,7 @@ export default class API extends Component {
               apiData={this.state.apiData}
             />
           </div>
-          <div className='col-md-9'>
+          <div id='api' className='col-md-9'>
             {this.state.apiData.map(data => {
               return (
                 <APISection

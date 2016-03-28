@@ -10,7 +10,7 @@ function App({ children }) {
       <Navbar fixedTop inverse>
         <Header>
           <Brand>
-            TCG Pokedex
+            TCG Pokédex
           </Brand>
           <Toggle />
         </Header>

@@ -6,12 +6,13 @@
 
 body {
   padding-top: 45px;
-  margin-bottom: 45px;
+  padding-bottom: 45px;
 }
 
 .json {
-  height: 400px;
+  height: 500px;
   overflow-y: scroll;
+  font-family: Source Code Pro,Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
 }
 
 .margin-right-0 {
@@ -22,6 +23,14 @@ body {
   margin-left: 0;
 }
 
+#api h1,#api h2 {
+  margin-top: -50px;
+  padding-top: 50px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
 
 
 /*

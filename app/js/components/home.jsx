@@ -7,8 +7,8 @@ export default function API() {
     <div>
       <div className='jumbotron'>
         <div className='container text-center'>
-          <h1>TCG Pokedex</h1>
-          <h2>The RESTful Pokemon Trading Card Game API</h2>
+          <h1>TCG Pokédex</h1>
+          <h2>The RESTful Pokémon Trading Card Game API</h2>
         </div>
       </div>
       <div className='container'>
@@ -18,7 +18,7 @@ export default function API() {
           <div className='col-md-4'>
             <h3>What is this?</h3>
             <div className='well'>
-              <p>This is a RESTful API for accessing full card information from pokemon TCG.</p>
+              <p>This is a RESTful API for accessing full card information from pokémon TCG.</p>
             </div>
           </div>
           <div className='col-md-4'>
