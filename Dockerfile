@@ -9,8 +9,6 @@ ENV PORT 8000
 COPY . /app
 RUN npm run build
 
-WORKDIR /app/dist
-
 EXPOSE 8000
 
 CMD npm start
